@@ -1,5 +1,7 @@
 # Secrets
 
+[![Build Status](https://travis-ci.org/faustinoaq/secrets.svg?branch=master)](https://travis-ci.org/faustinoaq/secrets)
+
 Crystal shard to get secrets with hint and backspace support.
 
 ![Secrets](https://i.imgur.com/R52pscI.png "Secrets")
