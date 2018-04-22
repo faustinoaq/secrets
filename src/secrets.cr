@@ -25,6 +25,7 @@ module Secrets
         end
       when 13
         if input.size == 0 && (error = empty_error)
+          sleep 1
           puts
           puts error unless error.empty?
           print prompt
