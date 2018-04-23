@@ -55,4 +55,28 @@ describe Secrets do
     password = FakeSecrets.gets prompt: "Your secret: ", hint: "x", empty_error: "Please, Try again!"
     password.should eq "abc"
   end
+
+  it ".gets with zero retry" do
+    spawn do
+      FakeIO.rewind
+    end
+    password = FakeSecrets.gets retry: 0
+    password.should eq ""
+  end
+
+  it ".gets with one retry" do
+    spawn do
+      FakeIO.rewind
+    end
+    password = FakeSecrets.gets retry: 1
+    password.should eq "abc"
+  end
+
+  it ".gets with one retry" do
+    spawn do
+      FakeIO.rewind
+    end
+    password = FakeSecrets.gets empty_error: "Try again!", retry: 1
+    password.should eq "abc"
+  end
 end

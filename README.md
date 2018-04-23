@@ -36,6 +36,19 @@ puts "Your secret has #{secret.size} character(s)"
 
 ![secrets-example-error](https://i.imgur.com/ZLriiBx.gif "No empty secrets!")
 
+```crystal
+require "secrets"
+
+secret = Secrets.gets prompt: "Write your secret: ", empty_error: "Retry!", retry: 3
+if secret.empty?
+  puts "Oh, no!, your secret is empty!"
+else
+  puts "Your secret has #{secret.size} character(s)"
+end
+```
+
+![secrets-example-error-retry](https://i.imgur.com/FL0vxBJ.gif)
+
 ## Development
 
 Execute `spec/` using:

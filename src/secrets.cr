@@ -10,10 +10,10 @@ require "./secrets/*"
 module Secrets
   extend self
 
-  def gets(prompt = "", hint = "*", empty_error : String? = nil)
+  def gets(prompt = "", hint = "*", empty_error : String? = nil, retry : Int32? = nil)
     print prompt
     input = [] of String
-    loop do
+    loop do |i|
       char = gets_char
       case char[0].ord
       when 127
@@ -24,10 +24,17 @@ module Secrets
           print "\u{8}"
         end
       when 13
-        if input.size == 0 && (error = empty_error)
-          sleep 1
+        if input.size == 0
           puts
-          puts error unless error.empty?
+          if retry || empty_error
+            if retry
+              break if i >= retry
+            end
+            if empty_error
+              puts empty_error unless empty_error.empty?
+            end
+          end
+          sleep 1
           print prompt
         else
           break
