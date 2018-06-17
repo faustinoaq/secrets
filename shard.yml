@@ -1,9 +1,9 @@
 name: secrets
-version: 0.1.1
+version: 0.1.2
 
 authors:
   - Faustino Aguilar <faustinoaq@gmail.com>
 
-crystal: 0.24.2
+crystal: 0.25.0
 
 license: MIT
