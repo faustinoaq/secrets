@@ -46,10 +46,10 @@ module Secrets
         input << char
         print hint
       end
+      i += 1
     end
     puts
     input.join
-    i += 1
   end
 
   private def gets_char
