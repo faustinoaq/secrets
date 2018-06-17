@@ -13,7 +13,8 @@ module Secrets
   def gets(prompt = "", hint = "*", empty_error : String? = nil, retry : Int32? = nil)
     print prompt
     input = [] of String
-    loop do |i|
+    i = 0
+    loop do
       char = gets_char
       case char[0].ord
       when 127
@@ -48,6 +49,7 @@ module Secrets
     end
     puts
     input.join
+    i += 1
   end
 
   private def gets_char
